@@ -20,7 +20,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@color/black"
-
+            app:image="@{item.image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

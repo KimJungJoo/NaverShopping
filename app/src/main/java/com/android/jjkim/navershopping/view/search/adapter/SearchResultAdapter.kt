@@ -36,13 +36,6 @@ class SearchResultAdapter(private val context: Context):
         holder.bind(itemList[position])
     }
 
-//    @BindingAdapter("image")
-//    fun loadItemImage(view: ImageView, imageUrl: String?) {
-//        Glide.with(view.context)
-//            .load(imageUrl)
-//            .into(view)
-//    }
-
     class SearchItemHolder(val binding: LayoutSearchResultItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(currentItem: ResponseShopSearchItem) {
             binding.item = currentItem
@@ -50,4 +43,21 @@ class SearchResultAdapter(private val context: Context):
     }
 
 
+    companion object {
+        @JvmStatic
+        @BindingAdapter("image")
+        fun loadItemImage(view: ImageView, imageUrl: String?) {
+            Glide.with(view.context)
+                .load(imageUrl)
+                .into(view)
+        }
+    }
 }
+
+/*
+@BindingAdapter("image")
+fun loadItemImage(view: ImageView, imageUrl: String?) {
+    Glide.with(view.context)
+        .load(imageUrl)
+        .into(view)
+}*/
