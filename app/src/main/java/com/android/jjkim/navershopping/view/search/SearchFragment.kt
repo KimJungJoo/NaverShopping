@@ -15,6 +15,7 @@ import com.android.jjkim.navershopping.viewmodel.search.SearchViewModelFactory
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override var layoutId = R.layout.fragment_search
     lateinit var adapter: SearchResultAdapter
+
     //만일 Activity 범위 내에서 ViewModel을 초기화하려면 다음과 같이 작성해주면 된다.
     //ViewModelStoreOwner를 Acvitiy로 설정해 주는 것이다.
     override val viewModel: SearchViewModel by lazy {
@@ -38,7 +39,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     //ViewModel 초기화 되는 곳.
     private fun bindViewModel() {
         viewDataBinding.viewModel = viewModel
-        LogUtil.d("UserInfoFragment", "ViewModel Address : $viewModel")
     }
 
     private fun setAdapter() {

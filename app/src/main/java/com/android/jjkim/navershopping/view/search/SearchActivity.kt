@@ -31,7 +31,8 @@ class SearchActivity : BaseActivity() {
         viewBinding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        setSearchFragment()
+        if(savedInstanceState == null)
+            setSearchFragment()
     }
 
     private fun setSearchFragment() {
