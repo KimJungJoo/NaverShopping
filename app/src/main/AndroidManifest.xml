@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".app.NSApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,25 +17,25 @@
         android:theme="@style/Theme.NaverShopping"
         tools:targetApi="31">
         <activity
-            android:name=".view.tamplate.CollapsHeaderActivity"
+            android:name="com.android.jjkim.navershopping.app.view.tamplate.CollapsHeaderActivity"
             android:exported="false" />
         <activity
-            android:name=".view.tamplate.ScrollingHeaderActivity"
+            android:name="com.android.jjkim.navershopping.app.view.tamplate.ScrollingHeaderActivity"
             android:exported="false" />
         <activity
-            android:name=".view.tamplate.FixedHeaderActivity"
+            android:name="com.android.jjkim.navershopping.app.view.tamplate.FixedHeaderActivity"
             android:exported="false" />
         <activity
-            android:name="com.android.jjkim.navershopping.view.search.SearchActivity"
+            android:name="com.android.jjkim.navershopping.app.view.search.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".view.test.TestNetworkActivity"
+            android:name="com.android.jjkim.navershopping.app.view.test.TestNetworkActivity"
             android:exported="false" />
         <activity
-            android:name=".view.test.TestHeaderActivity"
+            android:name="com.android.jjkim.navershopping.app.view.test.TestHeaderActivity"
             android:exported="false" />
         <activity
-            android:name=".view.test.TestActivity"
+            android:name="com.android.jjkim.navershopping.app.view.test.TestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

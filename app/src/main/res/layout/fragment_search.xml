@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.android.jjkim.navershopping.viewmodel.search.SearchViewModel" />
+            type="com.android.jjkim.navershopping.app.viewmodel.search.SearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

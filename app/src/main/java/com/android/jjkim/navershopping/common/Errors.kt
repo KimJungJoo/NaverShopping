@@ -4,7 +4,7 @@ import android.content.Context
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.android.jjkim.navershopping.R
-import com.android.jjkim.navershopping.service.model.ResponseBase
+import com.android.jjkim.navershopping.app.service.model.ResponseBase
 
 class Errors {
 
