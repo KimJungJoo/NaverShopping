@@ -11,11 +11,6 @@ import com.android.jjkim.navershopping.app.view.base.BaseActivity
 import com.android.jjkim.navershopping.app.view.search.adapter.SearchResultAdapter
 
 class SearchActivity : BaseActivity() {
-    private lateinit var searchEdit: EditText
-    private lateinit var searchBtn: Button
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var searchResultAdapter: SearchResultAdapter
-
     lateinit var viewBinding: ActivityBaseBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

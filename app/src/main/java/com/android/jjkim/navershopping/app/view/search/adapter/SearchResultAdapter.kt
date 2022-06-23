@@ -20,6 +20,11 @@ class SearchResultAdapter(private val context: Context):
         notifyDataSetChanged()
     }
 
+    fun addItems(items: List<ResponseShopSearchItem>) {
+        this.itemList.addAll(items)
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int = itemList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchItemHolder {

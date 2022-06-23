@@ -2,13 +2,23 @@ package com.android.jjkim.navershopping.app.view.search
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.android.jjkim.navershopping.R
+import com.android.jjkim.navershopping.app.NSApp
+import com.android.jjkim.navershopping.app.datastore.NsDataStore
 import com.android.jjkim.navershopping.databinding.FragmentSearchBinding
 import com.android.jjkim.navershopping.app.view.base.BaseFragment
 import com.android.jjkim.navershopping.app.service.repository.SearchRepository
 import com.android.jjkim.navershopping.app.view.search.adapter.SearchResultAdapter
 import com.android.jjkim.navershopping.app.viewmodel.search.SearchViewModel
 import com.android.jjkim.navershopping.app.viewmodel.search.SearchViewModelFactory
+import com.android.jjkim.navershopping.common.hideKeyboard
+import com.android.jjkim.navershopping.common.showToast
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.observeOn
+import kotlinx.coroutines.launch
 
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
@@ -47,13 +57,27 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     private fun setObserver() {
         viewModel.resSearch.observe(this, Observer{
-            adapter.setItems(it.items)
+            adapter.addItems(it.items)
         })
 
         viewModel.errorMessage.observe(this, Observer {
         })
 
         viewModel.getSearchShop("모자", 1, 15, "sim")
+    }
+
+    private fun reqSearch() {
+        lifecycleScope.launch {
+            NsDataStore().incrementSearchCounter()
+        }
+
+        lifecycleScope.launch {
+            NsDataStore().searchCounter.collect {
+                showToast("search count : " + it)
+            }
+        }
+
+        viewModel.getSearchShop(viewDataBinding.editSearch.text.toString(), 1, 15, "sim")
     }
 
     private fun changeFragment() {
@@ -68,7 +92,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     private fun setBtnListener() {
         viewDataBinding.btnSearch.setOnClickListener {
-
+            viewDataBinding.editSearch.hideKeyboard(requireActivity())
+            reqSearch()
         }
     }
 }

@@ -1,7 +1,10 @@
 package com.android.jjkim.navershopping.common
 
+import android.content.Context
 import android.text.format.DateFormat
 import android.text.format.DateFormat.format
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -175,6 +178,14 @@ fun combineTimestamp(x: Long, y: Long) = (x.toString() + y.toString()).toLong()
 // 타임스탬프
 fun getTimestamp(): Long = System.currentTimeMillis()
 
+fun EditText.hideKeyboard(context: Context) {
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(this.windowToken, 0)
+}
+
+fun EditText.showKeyboard(context: Context) {
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(this, 0)
+}
+
 @BindingAdapter("urlImage")
 fun ImageView.setUrlImage(url: String) {
     Glide.with(this).load(url)
@@ -201,5 +212,6 @@ fun ImageView.loadItemImage(imageUrl: String?) {
         .load(imageUrl)
         .into(this)
 }
+
 
 
