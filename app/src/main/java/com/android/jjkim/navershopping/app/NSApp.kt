@@ -4,8 +4,12 @@ import android.app.Application
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import com.android.jjkim.navershopping.common.network.NetworkConnectionStateMonitor
+import com.android.jjkim.navershopping.common.utils.LogUtil
 
 class NSApp : Application() {
+    private lateinit var networkConnectionStateMonitor: NetworkConnectionStateMonitor
+
     init {
         instance = this
     }
@@ -23,6 +27,21 @@ class NSApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        registNetworkChecker()
+    }
+
+    fun registNetworkChecker() {
+        try {
+            if (networkConnectionStateMonitor != null) networkConnectionStateMonitor.unregister()
+        } catch (e: IllegalArgumentException) {
+            LogUtil.logException(e.message)
+        } catch (e: RuntimeException) {
+            LogUtil.logException(e.message)
+        } finally {
+            networkConnectionStateMonitor = NetworkConnectionStateMonitor(this)
+            networkConnectionStateMonitor.register()
+        }
     }
 
     fun exitApp() {

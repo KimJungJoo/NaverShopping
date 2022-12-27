@@ -3,6 +3,7 @@ package com.android.jjkim.navershopping.app.view.test
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import androidx.core.app.ActivityCompat
 import com.android.jjkim.navershopping.R
 import com.android.jjkim.navershopping.app.NSApp
 import com.android.jjkim.navershopping.app.view.base.BaseActivity
@@ -25,6 +26,7 @@ class TestActivity : BaseActivity() {
         if(exitHandler.isBackPressed())
             return;
 
+        ActivityCompat.finishAffinity(this);
         NSApp.getApp().exitApp()
     }
 

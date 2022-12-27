@@ -1,6 +1,6 @@
 package com.android.jjkim.navershopping.app.service
 
-import com.android.jjkim.navershopping.common.LogUtil
+import com.android.jjkim.navershopping.common.utils.LogUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

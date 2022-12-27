@@ -3,7 +3,7 @@ package com.android.jjkim.navershopping.app.service
 import android.os.Build
 import android.util.Log
 import com.android.jjkim.navershopping.BuildConfig
-import com.android.jjkim.navershopping.common.LogUtil
+import com.android.jjkim.navershopping.common.utils.LogUtil
 import okhttp3.ConnectionSpec
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient

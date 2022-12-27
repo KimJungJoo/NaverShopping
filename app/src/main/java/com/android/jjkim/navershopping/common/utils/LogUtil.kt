@@ -1,4 +1,4 @@
-package com.android.jjkim.navershopping.common
+package com.android.jjkim.navershopping.common.utils
 
 import android.util.Log
 import com.android.jjkim.navershopping.BuildConfig

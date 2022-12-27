@@ -1,4 +1,4 @@
-package com.android.jjkim.navershopping.common
+package com.android.jjkim.navershopping.common.utils
 
 import android.annotation.TargetApi
 import android.app.*
@@ -24,10 +24,10 @@ import android.view.*
 import android.view.ViewGroup.MarginLayoutParams
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.android.jjkim.navershopping.R
+import com.android.jjkim.navershopping.app.check.Checker
 import com.google.android.material.tabs.TabLayout
 import java.text.DecimalFormat
 import java.text.NumberFormat
